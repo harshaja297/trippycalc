@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body id="bod">
+    <section class="calculator">
+        <div class = "actualCalc" id="key">
+           
+            <input type="text" id="inp" readonly placeholder="0"><span class="love"></span>
+            <br>
+            <div class = "row">
+                <span><button class="harsha" onclick="display('1')" id="1">1</button></span>
+                <span><button class="harsha" onclick="display('2')" id="2">2</button></span>
+                <span><button class="harsha" onclick="display('3')" id="3">3</button></span>
+            </div>
+            <div class = "row">
+                <span ><button class="harsha" onclick="display('4')" id="4">4</button></span>
+                <span ><button class="harsha" onclick="display('5')" id="5">5</button></span>
+                <span ><button class="harsha" onclick="display('6')" id="6">6</button></span>
+            </div>
+            <div class = "row">
+                <span ><button class="harsha" onclick="display('7')" id="7">7</button></span>
+                <span ><button class="harsha" onclick="display('8')" id="8">8</button></span>
+                <span ><button class="harsha" onclick="display('9')" id="9">9</button></span>
+            </div>
+            <div  class = "row">
+                <span ><button class="harsha" onclick="display('-')" id="sub">-</button></span>
+                <span ><button class="harsha" onclick="display('0')" id="0">0</button></span>
+                <span ><button class="harsha" onclick="display('+')" id="add">+</button></span>
+               
+            </div>
+            <div class = "row">
+                <span ><button class="harsha" onclick="display('/')" id="divi">/</button></span>
+                <span ><button class="harsha" onclick="display('*')" id="mul">x</button></span>
+                <span ><button class="harsha" onclick="clr()" id="clr">clr</button></span>
+            </div>
+            
+            <div class = "row">
+                <span ><button class="harsha" onclick="display('.')" id="dec">.</button></span>
+                <span ><button class="harsha" onclick="del()" id="del"><=</button></span>
+                <span ><button class="harsha" onclick="calculate()" id="equ">=</button></span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    let screen = document.getElementById("inp");
+
+    function display(num){
+            screen.value+=num;
+    }
+    function calculate(){
+        try{
+            // console.log(screen.value.length);
+            screen.value = eval(screen.value);
+            switch(screen.value){
+            case "6383018321":{
+                screen.value = "harsha is Good";
+            setTimeout(()=>{
+                screen.value = "";
+            },3000);
+            break;
+            }
+            case "6374899061":{
+                screen.style.fontSize = "200%";
+                screen.value = "DhanushOruPottaBadu";
+                // screen.style.backgroundColor= "green";
+                setTimeout(()=>{
+                 screen.style.fontSize = "50px";
+                screen.value = "";
+            },3000);
+            break;
+            }
+            case "9940393343":{
+                screen.value = "🤞❤😊loveU";
+            setTimeout(()=>{
+                screen.value = "";
+            },3000);
+            break;
+            }
+        }
+        if(screen.value.length>20){
+                screen.value ="NiOruMudhevi";
+            setTimeout(()=>{
+                screen.value = "";
+            },3000);
+        }
+        }catch(err){
+            screen.value = "invalidInput";
+            setTimeout(()=>{
+                screen.value = "";
+            },3000);
+        }
+
+    }
+    function del(){
+            screen.value = screen.value.slice(0,-1);
+    }
+    function clr(){
+        screen.value = ""; 
+    }
+
+
+ let key = document.querySelector("#key");
+ let buts = document.getElementsByClassName("harsha");
+//  let buon = document.querySelector(".harsha");
+ var buut = Array.prototype.slice.call(buts);
+ let bod = document.getElementById("bod")
+ console.log(buut);
+ console.log(key);
+// console.log(buon);
+console.log(inp);
+let j=0;
+let arrOfColors = "0 1 2 3 4 5 6 7 8 9 A B C D E F";
+
+let rand =()=> Math.floor(Math.random()*16);
+let arr = arrOfColors.split(' ');
+key.addEventListener('click',change());
+console.log(arr);
+
+setInterval(change,1500)
+function change(){ 
+    let col1 = '#';
+    let col2 = '#';
+    let col3 = "#";
+    let col4 = "#";
+    let col5 = "#";
+    
+    // body = document.querySelector("");//to be changed which element tobe infused
+    key.style.transitionDuration ="4s";
+    // bod.style.transitionDuration ="4s";
+    inp.style.transitionDuration ="4s";
+
+    for(let i = 0 ; i<6 ; i++){
+        col1 = col1+arr[rand()];
+    }
+
+    for(let i = 0 ; i<6 ; i++){
+        col2 = col2+arr[rand()];
+    }
+
+    for(let i = 0 ; i<6 ; i++){
+        col3 = col3+arr[rand()];
+    }
+
+    for(let i = 0 ; i<6 ; i++){
+        col4 = col4+arr[rand()];
+    }
+    
+    for(let i = 0 ; i<6 ; i++){
+        col5 = col5+arr[rand()];
+    }
+
+    key.style.backgroundColor = col1;
+    buut.forEach(element => {
+        element.style.backgroundColor = col2;
+        element.style.color = col4;
+    });
+    
+    bod.style.backgroundColor = col3;
+    // inp.style.color = col5;
+
+
+    j++;
+}
+
+    </script>
+
+</body>
+</html>
